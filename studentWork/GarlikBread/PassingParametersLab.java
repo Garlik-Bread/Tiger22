@@ -1,5 +1,3 @@
-package sampleCode.Arrays;
-
 import java.util.Arrays;
 
 /** Used with the Passing Parameters lab on 2020-02-24. */
@@ -7,10 +5,10 @@ public class PassingParametersLab {
 
     public static void main(String[] args) {
         /***** PART 1 - uncomment the lines below. *****/
-        int myNum = 23;
-        System.out.println("myNum before change: " + myNum);
-        changeNumber(myNum);
-        System.out.println("myNum after change: " + myNum);
+       // int myNum = 23;
+        // System.out.println("myNum before change: " + myNum);
+        //changeNumber(myNum);
+        //System.out.println("myNum after change: " + myNum);
 
         /***** PART 2 - uncomment the lines below. *****/
         // int[] myArray = {45, 22, -1, 4, 16};
