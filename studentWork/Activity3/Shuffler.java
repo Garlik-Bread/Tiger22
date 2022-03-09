@@ -1,3 +1,5 @@
+//package labs.elevens.Activity3;
+
 /**
  * This class provides a convenient way to test shuffling methods.
  */
