@@ -1,6 +1,5 @@
 import java.util.List;
 import java.util.ArrayList;
-
 /**
  * The ElevensBoard class represents the board in a game of Elevens.
  */
@@ -185,9 +184,13 @@ public class ElevensBoard {
 	 */
 	public boolean isLegal(List<Integer> selectedCards) {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 9 *** */
-	if (selectedCards.size() == 2) {
+		if (selectedCards.size() == 2) {
 		return containsPairSum11(selectedCards);
-	}
+		}
+		else if (selectedCards.size() == 3) {
+		return containsJQK(selectedCards);
+		}
+		return false;
 	}
 	/**
 	 * Determine if there are any legal plays left on the board.
@@ -199,6 +202,11 @@ public class ElevensBoard {
 	 */
 	public boolean anotherPlayIsPossible() {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 9 *** */
+		List<Integer> indexes = cardIndexes();
+        if (!containsPairSum11(indexes)) {
+            return containsJQK(indexes);
+        }
+        return true;
 	}
 
 
@@ -221,6 +229,17 @@ public class ElevensBoard {
 	 */
 	private boolean containsPairSum11(List<Integer> selectedCards) {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 9 *** */
+		if (selectedCards.size() < 2) {
+			return false;
+		}
+		for (int i = 0; i < selectedCards.size() - 1; i++) {
+			for (int j = i + 1; j < selectedCards.size(); j++) {
+				if (cardAt(selectedCards.get(i)).getPointValue() + cardAt(selectedCards.get(j)).getPointValue() == 11) {
+					return true;
+				}
+			}
+		}
+		return false;
 	}
 
 	/**
@@ -233,5 +252,23 @@ public class ElevensBoard {
 	 */
 	private boolean containsJQK(List<Integer> selectedCards) {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 9 *** */
+		boolean hasJack = false;
+		boolean hasQueen = false;
+		boolean hasKing = false;
+		if (selectedCards.size() < 3) {
+			return false;
+		}
+		for (int i = 0; i < selectedCards.size(); i++) {
+			if (cardAt(selectedCards.get(i)).getRank() == "jack" ) {
+				hasJack = true;
+			}
+			else if (cardAt(selectedCards.get(i)).getRank() == "queen") {
+				hasQueen = true;
+			}
+			else if (cardAt(selectedCards.get(i)).getRank() == "king") {
+				hasKing = true;
+			}
+		}
+		return (hasJack && hasQueen && hasKing);
 	}
 }

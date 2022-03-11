@@ -55,7 +55,7 @@ public class CardGameGUI extends JFrame implements ActionListener {
 	private static final int LABEL_HEIGHT_INC = 35;
 
 	/** The board (Board subclass). */
-	private Board board;
+	private ElevensBoard board;
 
 	/** The main panel containing the game components. */
 	private JPanel panel;
@@ -88,7 +88,7 @@ public class CardGameGUI extends JFrame implements ActionListener {
 	 * Initialize the GUI.
 	 * @param gameBoard is a <code>Board</code> subclass.
 	 */
-	public CardGameGUI(Board gameBoard) {
+	public CardGameGUI(ElevensBoard gameBoard) {
 		board = gameBoard;
 		totalWins = 0;
 		totalGames = 0;
@@ -266,7 +266,7 @@ public class CardGameGUI extends JFrame implements ActionListener {
 		if (c == null) {
 			return "cards/back1.GIF";
 		}
-		str += c.rank() + c.suit();
+		str += c.getRank() + c.getSuit();
 		if (isSelected) {
 			str += "S";
 		}
@@ -278,6 +278,7 @@ public class CardGameGUI extends JFrame implements ActionListener {
 	 * Respond to a button click (on either the "Replace" button
 	 * or the "Restart" button).
 	 * @param e the button click action event
+	 * @return 
 	 */
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource().equals(replaceButton)) {
@@ -288,6 +289,7 @@ public class CardGameGUI extends JFrame implements ActionListener {
 					selection.add(new Integer(k));
 				}
 			}
+			
 			// Make sure that the selected cards represent a legal replacement.
 			if (!board.isLegal(selection)) {
 				signalError();
