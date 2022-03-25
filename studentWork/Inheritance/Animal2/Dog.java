@@ -1,4 +1,4 @@
-package studentWork.Inheritance.Animal2;
+package Inheritance.Animal2;
 
 class Dog extends Animal2 { // Subclass (child)
     public void animalSound() {

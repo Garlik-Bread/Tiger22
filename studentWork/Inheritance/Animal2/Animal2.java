@@ -1,4 +1,4 @@
-package studentWork.Inheritance.Animal2;
+package Inheritance.Animal2;
 
 class Animal2 { // Superclass (parent)
     public void animalSound() {

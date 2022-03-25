@@ -1,4 +1,4 @@
-package studentWork.Inheritance.Animal2;
+package Inheritance.Animal2;
 
 public class TestClient {
     public static void main(String args[]) {
