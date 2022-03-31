@@ -24,13 +24,14 @@ public class CellPhone {
    }
    
    public String toString() {
+
       /*
        * TODO (Step 1): Complete this method.
        * When you print a cell phone, it should be formatted like the following example:
        *
        *    "Jim's CellPhone(iPhone 11)"
        */
-      return "";
+      return ownerName + " 's Cellphone(" + model + " " + version + ")";
    }
    
    public boolean equals(Object obj) {
@@ -44,7 +45,7 @@ public class CellPhone {
        *
        *    CellPhone objAsCellPhone = (CellPhone) obj;
        */
-      return false;
+      return this.model.equals(objAsCellPhone.getModel());
    }
    
    public void sendText(CellPhone receiver) {
